@@ -83,17 +83,19 @@ public class Exercices {
 
     public List exercice9(){
         List<Integer>listeInteger;
-        listeInteger = IntStream.iterate(0, (n)->n+1).map((n)->n/3).map((n)->n/7).filter((n)->!(n>10)).limit(10).boxed().collect(Collectors.toList());
+        listeInteger = IntStream.iterate(0, (n)->n+1).filter((n)->n%3 == 0).filter((n)->n%7 == 0).filter((n)->!(n==0)).limit(10).boxed().collect(Collectors.toList());
         /*
         Créez un stream infini d'entiers et utilisez le pour trouver les 10 premiers nombres divisibles par 3 et par 7.
          */
-        return Arrays.asList(listeInteger);
+        return listeInteger;
     }
 
     public List exercice10(){
+        List<Integer>integerList;
+        integerList = IntStream.iterate(0,(n)->n+1).map((n)->n*n).filter((n)->!(n==0)).limit(20).boxed().collect(Collectors.toList());
         /*
         Générez la liste des 20 premiers carrés parfaits grâce à un stream infini.
          */
-        return Arrays.asList();
+        return integerList;
     }
 }
